@@ -1,10 +1,13 @@
 <?php
-namespace Arbor\Model;
+namespace Arbor\Model\UkDfe;
 
-use Arbor\Resource\ResourceType;
+use Arbor\Resource\UkDfe\ResourceType;
 use Arbor\Query\Query;
+use Arbor\Model\Collection;
+use Arbor\Model\Exception;
+use Arbor\Model\ModelBase;
 
-class ObservationGradeSet extends ModelBase
+class TravellerStatus extends ModelBase
 {
 
     const CODE = 'code';
@@ -13,15 +16,13 @@ class ObservationGradeSet extends ModelBase
 
     const DATA_ORDER = 'dataOrder';
 
-    const NAME = 'name';
+    const TRAVELLER_STATUS_NAME = 'travellerStatusName';
 
-    const SCALE_DIRECTION = 'scaleDirection';
-
-    protected $_resourceType = ResourceType::OBSERVATION_GRADE_SET;
+    protected $_resourceType = ResourceType::UK_DFE_TRAVELLER_STATUS;
 
     /**
      * @param Query $query
-     * @return ObservationGradeSet[] | Collection
+     * @return TravellerStatus[] | Collection
      * @throws Exception
      */
     public static function query(Query $query = null)
@@ -35,14 +36,14 @@ class ObservationGradeSet extends ModelBase
             $query = new Query();
         }
 
-        $query->setResourceType(ResourceType::OBSERVATION_GRADE_SET);
+        $query->setResourceType(ResourceType::UK_DFE_TRAVELLER_STATUS);
 
         return $gateway->query($query);
     }
 
     /**
      * @param int $id
-     * @return ObservationGradeSet
+     * @return TravellerStatus
      * @throws Exception
      */
     public static function retrieve($id)
@@ -52,7 +53,7 @@ class ObservationGradeSet extends ModelBase
             throw new Exception('You must call ModelBase::setDefaultGateway() prior to calling ModelBase::retrieve()');
         }
 
-        return $gateway->retrieve(ResourceType::OBSERVATION_GRADE_SET, $id);
+        return $gateway->retrieve(ResourceType::UK_DFE_TRAVELLER_STATUS, $id);
     }
 
     /**
@@ -106,33 +107,17 @@ class ObservationGradeSet extends ModelBase
     /**
      * @return string
      */
-    public function getName()
+    public function getTravellerStatusName()
     {
-        return $this->getProperty('name');
+        return $this->getProperty('travellerStatusName');
     }
 
     /**
-     * @param string $name
+     * @param string $travellerStatusName
      */
-    public function setName($name = null)
+    public function setTravellerStatusName($travellerStatusName = null)
     {
-        $this->setProperty('name', $name);
-    }
-
-    /**
-     * @return string
-     */
-    public function getScaleDirection()
-    {
-        return $this->getProperty('scaleDirection');
-    }
-
-    /**
-     * @param string $scaleDirection
-     */
-    public function setScaleDirection($scaleDirection = null)
-    {
-        $this->setProperty('scaleDirection', $scaleDirection);
+        $this->setProperty('travellerStatusName', $travellerStatusName);
     }
 
 

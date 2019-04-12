@@ -4,24 +4,18 @@ namespace Arbor\Model;
 use Arbor\Resource\ResourceType;
 use Arbor\Query\Query;
 
-class ObservationGradeSet extends ModelBase
+class ProgressGoalType extends ModelBase
 {
 
     const CODE = 'code';
 
-    const ACTIVE = 'active';
-
-    const DATA_ORDER = 'dataOrder';
-
     const NAME = 'name';
 
-    const SCALE_DIRECTION = 'scaleDirection';
-
-    protected $_resourceType = ResourceType::OBSERVATION_GRADE_SET;
+    protected $_resourceType = ResourceType::PROGRESS_GOAL_TYPE;
 
     /**
      * @param Query $query
-     * @return ObservationGradeSet[] | Collection
+     * @return ProgressGoalType[] | Collection
      * @throws Exception
      */
     public static function query(Query $query = null)
@@ -35,14 +29,14 @@ class ObservationGradeSet extends ModelBase
             $query = new Query();
         }
 
-        $query->setResourceType(ResourceType::OBSERVATION_GRADE_SET);
+        $query->setResourceType(ResourceType::PROGRESS_GOAL_TYPE);
 
         return $gateway->query($query);
     }
 
     /**
      * @param int $id
-     * @return ObservationGradeSet
+     * @return ProgressGoalType
      * @throws Exception
      */
     public static function retrieve($id)
@@ -52,7 +46,7 @@ class ObservationGradeSet extends ModelBase
             throw new Exception('You must call ModelBase::setDefaultGateway() prior to calling ModelBase::retrieve()');
         }
 
-        return $gateway->retrieve(ResourceType::OBSERVATION_GRADE_SET, $id);
+        return $gateway->retrieve(ResourceType::PROGRESS_GOAL_TYPE, $id);
     }
 
     /**
@@ -72,38 +66,6 @@ class ObservationGradeSet extends ModelBase
     }
 
     /**
-     * @return bool
-     */
-    public function getActive()
-    {
-        return $this->getProperty('active');
-    }
-
-    /**
-     * @param bool $active
-     */
-    public function setActive($active = null)
-    {
-        $this->setProperty('active', $active);
-    }
-
-    /**
-     * @return int
-     */
-    public function getDataOrder()
-    {
-        return $this->getProperty('dataOrder');
-    }
-
-    /**
-     * @param int $dataOrder
-     */
-    public function setDataOrder($dataOrder = null)
-    {
-        $this->setProperty('dataOrder', $dataOrder);
-    }
-
-    /**
      * @return string
      */
     public function getName()
@@ -117,22 +79,6 @@ class ObservationGradeSet extends ModelBase
     public function setName($name = null)
     {
         $this->setProperty('name', $name);
-    }
-
-    /**
-     * @return string
-     */
-    public function getScaleDirection()
-    {
-        return $this->getProperty('scaleDirection');
-    }
-
-    /**
-     * @param string $scaleDirection
-     */
-    public function setScaleDirection($scaleDirection = null)
-    {
-        $this->setProperty('scaleDirection', $scaleDirection);
     }
 
 

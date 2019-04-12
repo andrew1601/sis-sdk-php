@@ -1,10 +1,14 @@
 <?php
-namespace Arbor\Model;
+namespace Arbor\Model\UkDfe;
 
-use Arbor\Resource\ResourceType;
+use Arbor\Resource\UkDfe\ResourceType;
 use Arbor\Query\Query;
+use Arbor\Model\Collection;
+use Arbor\Model\Exception;
+use Arbor\Model\ModelBase;
+use Arbor\Model\AcademicYear;
 
-class ObservationGrade extends ModelBase
+class SchoolWorkforceCensus extends ModelBase
 {
 
     const CODE = 'code';
@@ -13,19 +17,19 @@ class ObservationGrade extends ModelBase
 
     const DATA_ORDER = 'dataOrder';
 
-    const OBSERVATION_GRADE_SET = 'observationGradeSet';
+    const ACADEMIC_YEAR = 'academicYear';
 
-    const SHORT_NAME = 'shortName';
+    const CENSUS_YEAR = 'censusYear';
 
-    const NAME = 'name';
+    const CENSUS_REFERENCE_DATE = 'censusReferenceDate';
 
-    const OBSERVATION_GRADE_VALUE = 'observationGradeValue';
+    const CENSUS_SUBMISSION_DEADLINE_DATE = 'censusSubmissionDeadlineDate';
 
-    protected $_resourceType = ResourceType::OBSERVATION_GRADE;
+    protected $_resourceType = ResourceType::UK_DFE_SCHOOL_WORKFORCE_CENSUS;
 
     /**
      * @param Query $query
-     * @return ObservationGrade[] | Collection
+     * @return SchoolWorkforceCensus[] | Collection
      * @throws Exception
      */
     public static function query(Query $query = null)
@@ -39,14 +43,14 @@ class ObservationGrade extends ModelBase
             $query = new Query();
         }
 
-        $query->setResourceType(ResourceType::OBSERVATION_GRADE);
+        $query->setResourceType(ResourceType::UK_DFE_SCHOOL_WORKFORCE_CENSUS);
 
         return $gateway->query($query);
     }
 
     /**
      * @param int $id
-     * @return ObservationGrade
+     * @return SchoolWorkforceCensus
      * @throws Exception
      */
     public static function retrieve($id)
@@ -56,7 +60,7 @@ class ObservationGrade extends ModelBase
             throw new Exception('You must call ModelBase::setDefaultGateway() prior to calling ModelBase::retrieve()');
         }
 
-        return $gateway->retrieve(ResourceType::OBSERVATION_GRADE, $id);
+        return $gateway->retrieve(ResourceType::UK_DFE_SCHOOL_WORKFORCE_CENSUS, $id);
     }
 
     /**
@@ -108,67 +112,67 @@ class ObservationGrade extends ModelBase
     }
 
     /**
-     * @return ObservationGradeSet
+     * @return AcademicYear
      */
-    public function getObservationGradeSet()
+    public function getAcademicYear()
     {
-        return $this->getProperty('observationGradeSet');
+        return $this->getProperty('academicYear');
     }
 
     /**
-     * @param ObservationGradeSet $observationGradeSet
+     * @param AcademicYear $academicYear
      */
-    public function setObservationGradeSet(ObservationGradeSet $observationGradeSet = null)
+    public function setAcademicYear(AcademicYear $academicYear = null)
     {
-        $this->setProperty('observationGradeSet', $observationGradeSet);
-    }
-
-    /**
-     * @return string
-     */
-    public function getShortName()
-    {
-        return $this->getProperty('shortName');
-    }
-
-    /**
-     * @param string $shortName
-     */
-    public function setShortName($shortName = null)
-    {
-        $this->setProperty('shortName', $shortName);
+        $this->setProperty('academicYear', $academicYear);
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getCensusYear()
     {
-        return $this->getProperty('name');
+        return $this->getProperty('censusYear');
     }
 
     /**
-     * @param string $name
+     * @param string $censusYear
      */
-    public function setName($name = null)
+    public function setCensusYear($censusYear = null)
     {
-        $this->setProperty('name', $name);
+        $this->setProperty('censusYear', $censusYear);
     }
 
     /**
-     * @return float
+     * @return \DateTime
      */
-    public function getObservationGradeValue()
+    public function getCensusReferenceDate()
     {
-        return $this->getProperty('observationGradeValue');
+        return $this->getProperty('censusReferenceDate');
     }
 
     /**
-     * @param float $observationGradeValue
+     * @param \DateTime $censusReferenceDate
      */
-    public function setObservationGradeValue($observationGradeValue = null)
+    public function setCensusReferenceDate(\DateTime $censusReferenceDate = null)
     {
-        $this->setProperty('observationGradeValue', $observationGradeValue);
+        $this->setProperty('censusReferenceDate', $censusReferenceDate);
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCensusSubmissionDeadlineDate()
+    {
+        return $this->getProperty('censusSubmissionDeadlineDate');
+    }
+
+    /**
+     * @param \DateTime $censusSubmissionDeadlineDate
+     */
+    public function setCensusSubmissionDeadlineDate(\DateTime $censusSubmissionDeadlineDate = null)
+    {
+        $this->setProperty('censusSubmissionDeadlineDate', $censusSubmissionDeadlineDate);
     }
 
 

@@ -21,6 +21,7 @@ class ResourceType
 	const ACADEMIC_UNIT_ENROLMENT = 'AcademicUnitEnrolment';
 	const ACADEMIC_UNIT_ENROLMENT_IMPORT = 'AcademicUnitEnrolmentImport';
 	const ACADEMIC_UNIT_LEAD = 'AcademicUnitLead';
+	const ACADEMIC_UNIT_QUALIFICATION_AWARD = 'AcademicUnitQualificationAward';
 	const ACADEMIC_UNIT_QUALIFICATION_LINK = 'AcademicUnitQualificationLink';
 	const ACADEMIC_UNIT_TAG = 'AcademicUnitTag';
 	const ACADEMIC_UNIT_DEPARTMENT = 'AcademicUnitDepartment';
@@ -52,6 +53,7 @@ class ResourceType
 	const ASSESSMENT_GRADE_SET = 'AssessmentGradeSet';
 	const ASSESSMENT_FRAMEWORK_ASSESSMENT = 'AssessmentFrameworkAssessment';
 	const ASSESSMENT_STUDENT_GROUP = 'AssessmentStudentGroup';
+	const ASSESSMENT_MARK_NON_SUBMISSION_REASON = 'AssessmentMarkNonSubmissionReason';
 	const ACADEMIC_YEAR_ASSESSMENT = 'AcademicYearAssessment';
 	const ASSESSMENT_DATA_COLLECTION = 'AssessmentDataCollection';
 	const ASSESSMENT_DATA_COLLECTION_ITEM = 'AssessmentDataCollectionItem';
@@ -239,6 +241,8 @@ class ResourceType
 	const IMMUNIZATION_TYPE = 'ImmunizationType';
 	const IMMUNIZATION = 'Immunization';
 	const IMPAIRMENT_CATEGORY = 'ImpairmentCategory';
+	const IN_APP_MESSAGE_PERMITTED_SENDER = 'InAppMessagePermittedSender';
+	const INBOUND_IN_APP_MESSAGE = 'InboundInAppMessage';
 	const INBOUND_SMS_MESSAGE = 'InboundSmsMessage';
 	const INTAKE_SEASON = 'IntakeSeason';
 	const INTAKE_SEASON_APPLICANT_BUCKET = 'IntakeSeasonApplicantBucket';
@@ -322,6 +326,8 @@ class ResourceType
 	const OUTBOUND_LETTER = 'OutboundLetter';
 	const OUTBOUND_LETTER_RECIPIENT = 'OutboundLetterRecipient';
 	const OUTBOUND_LETTER_PERMITTED_SENDER = 'OutboundLetterPermittedSender';
+	const OUTBOUND_IN_APP_MESSAGE = 'OutboundInAppMessage';
+	const OUTBOUND_IN_APP_MESSAGE_DRAFT = 'OutboundInAppMessageDraft';
 	const PERSON = 'Person';
 	const PASTORAL_NOTE = 'PastoralNote';
 	const PAY_SCALE = 'PayScale';
@@ -350,6 +356,7 @@ class ResourceType
 	const POSITION_BUSINESS_ROLE = 'PositionBusinessRole';
 	const POSTAL_ADDRESS_OCCUPANCY = 'PostalAddressOccupancy';
 	const POSTAL_ADDRESS = 'PostalAddress';
+	const PREDICTED_ASSESSMENT_MARK = 'PredictedAssessmentMark';
 	const PREDICTED_FINAL_ASSESSMENT_MARK = 'PredictedFinalAssessmentMark';
 	const PROFESSIONAL_QUALIFICATION_CLASS = 'ProfessionalQualificationClass';
 	const PROFESSIONAL_QUALIFICATION_SUBJECT = 'ProfessionalQualificationSubject';
@@ -361,12 +368,14 @@ class ResourceType
 	const PROGRAMME_QUALIFICATION_AWARD = 'ProgrammeQualificationAward';
 	const PROGRAMME_LEAD = 'ProgrammeLead';
 	const PROGRAMME_WITHDRAWAL_REASON = 'ProgrammeWithdrawalReason';
+	const PROGRESS_GOAL_TYPE = 'ProgressGoalType';
 	const PROGRESS_ASSESSMENT_BATCH = 'ProgressAssessmentBatch';
 	const PROGRESS_ASSESSMENT_BATCH_MEASUREMENT_PERIOD = 'ProgressAssessmentBatchMeasurementPeriod';
 	const PROGRESS_ASSESSMENT_BATCH_TARGET = 'ProgressAssessmentBatchTarget';
 	const PROGRESS_ASSESSMENT_BATCH_TARGET_MEASUREMENT_PERIOD = 'ProgressAssessmentBatchTargetMeasurementPeriod';
 	const PROGRESS_MEASUREMENT_PERIOD = 'ProgressMeasurementPeriod';
 	const PROGRESS_MEASUREMENT_PERIOD_SET = 'ProgressMeasurementPeriodSet';
+	const PUSH_NOTIFICATION_TOKEN = 'PushNotificationToken';
 	const QUALIFICATION_ASPECT = 'QualificationAspect';
 	const QUALIFICATION_AVAILABILITY_INSTANCE = 'QualificationAvailabilityInstance';
 	const QUALIFICATION_AWARD = 'QualificationAward';
@@ -515,9 +524,6 @@ class ResourceType
 	const STUDENT_EMPLOYMENT_RECORD = 'StudentEmploymentRecord';
 	const STUDENT_ROOM_FEATURE_REQUIREMENT = 'StudentRoomFeatureRequirement';
 	const STUDENT_RECORD_CHANGE = 'StudentRecordChange';
-	const STRIPE_PAYOUT_TRANSACTION = 'StripePayoutTransaction';
-	const STRIPE_INCOMING_CARD_TRANSACTION = 'StripeIncomingCardTransaction';
-	const STRIPE_REFUND_TRANSACTION = 'StripeRefundTransaction';
 	const SUBJECT = 'Subject';
 	const SUPERANNUATION_SCHEME = 'SuperannuationScheme';
 	const SUPERANNUATION_SCHEME_VALUE = 'SuperannuationSchemeValue';
@@ -525,6 +531,7 @@ class ResourceType
 	const TAG = 'Tag';
 	const TAGGING = 'Tagging';
 	const TALENT = 'Talent';
+	const TARGET_JUDGEMENT_RULE = 'TargetJudgementRule';
 	const TEACHING_ASSISTANT_ALLOCATION = 'TeachingAssistantAllocation';
 	const TEACHING_GROUP = 'TeachingGroup';
 	const TEACHING_GROUP_MEMBERSHIP = 'TeachingGroupMembership';
@@ -619,4 +626,5 @@ class ResourceType
 	const OBSERVATION_FRAMEWORK_STRAND = 'ObservationFrameworkStrand';
 	const OBSERVATION = 'Observation';
 	const OBSERVATION_JUDGEMENT = 'ObservationJudgement';
+	const OBSERVATION_TYPE_GRADE_SET = 'ObservationTypeGradeSet';
 }

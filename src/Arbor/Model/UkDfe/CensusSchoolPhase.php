@@ -1,10 +1,13 @@
 <?php
-namespace Arbor\Model;
+namespace Arbor\Model\UkDfe;
 
-use Arbor\Resource\ResourceType;
+use Arbor\Resource\UkDfe\ResourceType;
 use Arbor\Query\Query;
+use Arbor\Model\Collection;
+use Arbor\Model\Exception;
+use Arbor\Model\ModelBase;
 
-class ObservationGradeSet extends ModelBase
+class CensusSchoolPhase extends ModelBase
 {
 
     const CODE = 'code';
@@ -13,15 +16,13 @@ class ObservationGradeSet extends ModelBase
 
     const DATA_ORDER = 'dataOrder';
 
-    const NAME = 'name';
+    const LABEL = 'label';
 
-    const SCALE_DIRECTION = 'scaleDirection';
-
-    protected $_resourceType = ResourceType::OBSERVATION_GRADE_SET;
+    protected $_resourceType = ResourceType::UK_DFE_CENSUS_SCHOOL_PHASE;
 
     /**
      * @param Query $query
-     * @return ObservationGradeSet[] | Collection
+     * @return CensusSchoolPhase[] | Collection
      * @throws Exception
      */
     public static function query(Query $query = null)
@@ -35,14 +36,14 @@ class ObservationGradeSet extends ModelBase
             $query = new Query();
         }
 
-        $query->setResourceType(ResourceType::OBSERVATION_GRADE_SET);
+        $query->setResourceType(ResourceType::UK_DFE_CENSUS_SCHOOL_PHASE);
 
         return $gateway->query($query);
     }
 
     /**
      * @param int $id
-     * @return ObservationGradeSet
+     * @return CensusSchoolPhase
      * @throws Exception
      */
     public static function retrieve($id)
@@ -52,7 +53,7 @@ class ObservationGradeSet extends ModelBase
             throw new Exception('You must call ModelBase::setDefaultGateway() prior to calling ModelBase::retrieve()');
         }
 
-        return $gateway->retrieve(ResourceType::OBSERVATION_GRADE_SET, $id);
+        return $gateway->retrieve(ResourceType::UK_DFE_CENSUS_SCHOOL_PHASE, $id);
     }
 
     /**
@@ -106,33 +107,17 @@ class ObservationGradeSet extends ModelBase
     /**
      * @return string
      */
-    public function getName()
+    public function getLabel()
     {
-        return $this->getProperty('name');
+        return $this->getProperty('label');
     }
 
     /**
-     * @param string $name
+     * @param string $label
      */
-    public function setName($name = null)
+    public function setLabel($label = null)
     {
-        $this->setProperty('name', $name);
-    }
-
-    /**
-     * @return string
-     */
-    public function getScaleDirection()
-    {
-        return $this->getProperty('scaleDirection');
-    }
-
-    /**
-     * @param string $scaleDirection
-     */
-    public function setScaleDirection($scaleDirection = null)
-    {
-        $this->setProperty('scaleDirection', $scaleDirection);
+        $this->setProperty('label', $label);
     }
 
 

@@ -4,16 +4,16 @@ namespace Arbor\Model;
 use Arbor\Resource\ResourceType;
 use Arbor\Query\Query;
 
-class StudentProgressAssessmentMark extends ModelBase
+class PredictedAssessmentMark extends ModelBase
 {
+
+    const ACADEMIC_YEAR = 'academicYear';
 
     const STUDENT = 'student';
 
     const ASSESSMENT = 'assessment';
 
     const PROGRESS_MEASUREMENT_PERIOD = 'progressMeasurementPeriod';
-
-    const STUDENT_PROGRESS_ASSESSMENT = 'studentProgressAssessment';
 
     const GRADE = 'grade';
 
@@ -25,23 +25,13 @@ class StudentProgressAssessmentMark extends ModelBase
 
     const ASSESSMENT_MARK_NON_SUBMISSION_REASON = 'assessmentMarkNonSubmissionReason';
 
-    const ASSESSMENT_DATE = 'assessmentDate';
+    const IS_CALCULATED_GRADE = 'isCalculatedGrade';
 
-    const MARKING_STAFF = 'markingStaff';
-
-    const COMPLETED_DATETIME = 'completedDatetime';
-
-    const COMPLETED_STAFF = 'completedStaff';
-
-    const APPROVED_DATETIME = 'approvedDatetime';
-
-    const APPROVED_STAFF = 'approvedStaff';
-
-    protected $_resourceType = ResourceType::STUDENT_PROGRESS_ASSESSMENT_MARK;
+    protected $_resourceType = ResourceType::PREDICTED_ASSESSMENT_MARK;
 
     /**
      * @param Query $query
-     * @return StudentProgressAssessmentMark[] | Collection
+     * @return PredictedAssessmentMark[] | Collection
      * @throws Exception
      */
     public static function query(Query $query = null)
@@ -55,14 +45,14 @@ class StudentProgressAssessmentMark extends ModelBase
             $query = new Query();
         }
 
-        $query->setResourceType(ResourceType::STUDENT_PROGRESS_ASSESSMENT_MARK);
+        $query->setResourceType(ResourceType::PREDICTED_ASSESSMENT_MARK);
 
         return $gateway->query($query);
     }
 
     /**
      * @param int $id
-     * @return StudentProgressAssessmentMark
+     * @return PredictedAssessmentMark
      * @throws Exception
      */
     public static function retrieve($id)
@@ -72,7 +62,23 @@ class StudentProgressAssessmentMark extends ModelBase
             throw new Exception('You must call ModelBase::setDefaultGateway() prior to calling ModelBase::retrieve()');
         }
 
-        return $gateway->retrieve(ResourceType::STUDENT_PROGRESS_ASSESSMENT_MARK, $id);
+        return $gateway->retrieve(ResourceType::PREDICTED_ASSESSMENT_MARK, $id);
+    }
+
+    /**
+     * @return AcademicYear
+     */
+    public function getAcademicYear()
+    {
+        return $this->getProperty('academicYear');
+    }
+
+    /**
+     * @param AcademicYear $academicYear
+     */
+    public function setAcademicYear(AcademicYear $academicYear = null)
+    {
+        $this->setProperty('academicYear', $academicYear);
     }
 
     /**
@@ -121,22 +127,6 @@ class StudentProgressAssessmentMark extends ModelBase
     public function setProgressMeasurementPeriod(ProgressMeasurementPeriod $progressMeasurementPeriod = null)
     {
         $this->setProperty('progressMeasurementPeriod', $progressMeasurementPeriod);
-    }
-
-    /**
-     * @return StudentProgressAssessment
-     */
-    public function getStudentProgressAssessment()
-    {
-        return $this->getProperty('studentProgressAssessment');
-    }
-
-    /**
-     * @param StudentProgressAssessment $studentProgressAssessment
-     */
-    public function setStudentProgressAssessment(StudentProgressAssessment $studentProgressAssessment = null)
-    {
-        $this->setProperty('studentProgressAssessment', $studentProgressAssessment);
     }
 
     /**
@@ -220,99 +210,19 @@ class StudentProgressAssessmentMark extends ModelBase
     }
 
     /**
-     * @return \DateTime
+     * @return bool
      */
-    public function getAssessmentDate()
+    public function getIsCalculatedGrade()
     {
-        return $this->getProperty('assessmentDate');
+        return $this->getProperty('isCalculatedGrade');
     }
 
     /**
-     * @param \DateTime $assessmentDate
+     * @param bool $isCalculatedGrade
      */
-    public function setAssessmentDate(\DateTime $assessmentDate = null)
+    public function setIsCalculatedGrade($isCalculatedGrade = null)
     {
-        $this->setProperty('assessmentDate', $assessmentDate);
-    }
-
-    /**
-     * @return Staff
-     */
-    public function getMarkingStaff()
-    {
-        return $this->getProperty('markingStaff');
-    }
-
-    /**
-     * @param Staff $markingStaff
-     */
-    public function setMarkingStaff(Staff $markingStaff = null)
-    {
-        $this->setProperty('markingStaff', $markingStaff);
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCompletedDatetime()
-    {
-        return $this->getProperty('completedDatetime');
-    }
-
-    /**
-     * @param \DateTime $completedDatetime
-     */
-    public function setCompletedDatetime(\DateTime $completedDatetime = null)
-    {
-        $this->setProperty('completedDatetime', $completedDatetime);
-    }
-
-    /**
-     * @return Staff
-     */
-    public function getCompletedStaff()
-    {
-        return $this->getProperty('completedStaff');
-    }
-
-    /**
-     * @param Staff $completedStaff
-     */
-    public function setCompletedStaff(Staff $completedStaff = null)
-    {
-        $this->setProperty('completedStaff', $completedStaff);
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getApprovedDatetime()
-    {
-        return $this->getProperty('approvedDatetime');
-    }
-
-    /**
-     * @param \DateTime $approvedDatetime
-     */
-    public function setApprovedDatetime(\DateTime $approvedDatetime = null)
-    {
-        $this->setProperty('approvedDatetime', $approvedDatetime);
-    }
-
-    /**
-     * @return Staff
-     */
-    public function getApprovedStaff()
-    {
-        return $this->getProperty('approvedStaff');
-    }
-
-    /**
-     * @param Staff $approvedStaff
-     */
-    public function setApprovedStaff(Staff $approvedStaff = null)
-    {
-        $this->setProperty('approvedStaff', $approvedStaff);
+        $this->setProperty('isCalculatedGrade', $isCalculatedGrade);
     }
 
 

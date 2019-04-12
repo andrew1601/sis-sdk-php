@@ -4,7 +4,7 @@ namespace Arbor\Model;
 use Arbor\Resource\ResourceType;
 use Arbor\Query\Query;
 
-class ObservationGradeSet extends ModelBase
+class AssessmentMarkNonSubmissionReason extends ModelBase
 {
 
     const CODE = 'code';
@@ -15,13 +15,15 @@ class ObservationGradeSet extends ModelBase
 
     const NAME = 'name';
 
-    const SCALE_DIRECTION = 'scaleDirection';
+    const SHORT_NAME = 'shortName';
 
-    protected $_resourceType = ResourceType::OBSERVATION_GRADE_SET;
+    const ASSESSMENT_TYPE = 'assessmentType';
+
+    protected $_resourceType = ResourceType::ASSESSMENT_MARK_NON_SUBMISSION_REASON;
 
     /**
      * @param Query $query
-     * @return ObservationGradeSet[] | Collection
+     * @return AssessmentMarkNonSubmissionReason[] | Collection
      * @throws Exception
      */
     public static function query(Query $query = null)
@@ -35,14 +37,14 @@ class ObservationGradeSet extends ModelBase
             $query = new Query();
         }
 
-        $query->setResourceType(ResourceType::OBSERVATION_GRADE_SET);
+        $query->setResourceType(ResourceType::ASSESSMENT_MARK_NON_SUBMISSION_REASON);
 
         return $gateway->query($query);
     }
 
     /**
      * @param int $id
-     * @return ObservationGradeSet
+     * @return AssessmentMarkNonSubmissionReason
      * @throws Exception
      */
     public static function retrieve($id)
@@ -52,7 +54,7 @@ class ObservationGradeSet extends ModelBase
             throw new Exception('You must call ModelBase::setDefaultGateway() prior to calling ModelBase::retrieve()');
         }
 
-        return $gateway->retrieve(ResourceType::OBSERVATION_GRADE_SET, $id);
+        return $gateway->retrieve(ResourceType::ASSESSMENT_MARK_NON_SUBMISSION_REASON, $id);
     }
 
     /**
@@ -122,17 +124,33 @@ class ObservationGradeSet extends ModelBase
     /**
      * @return string
      */
-    public function getScaleDirection()
+    public function getShortName()
     {
-        return $this->getProperty('scaleDirection');
+        return $this->getProperty('shortName');
     }
 
     /**
-     * @param string $scaleDirection
+     * @param string $shortName
      */
-    public function setScaleDirection($scaleDirection = null)
+    public function setShortName($shortName = null)
     {
-        $this->setProperty('scaleDirection', $scaleDirection);
+        $this->setProperty('shortName', $shortName);
+    }
+
+    /**
+     * @return string
+     */
+    public function getAssessmentType()
+    {
+        return $this->getProperty('assessmentType');
+    }
+
+    /**
+     * @param string $assessmentType
+     */
+    public function setAssessmentType($assessmentType = null)
+    {
+        $this->setProperty('assessmentType', $assessmentType);
     }
 
 
